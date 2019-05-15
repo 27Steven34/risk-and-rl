@@ -1,0 +1,78 @@
+This project contains source code for a Java application which simulates a 
+population of reinforcement-learning agents which each need to repeatedly select 
+between two options in order to try to maximize its acculated reward over time. 
+The agents may or may not share information or resources among each other after 
+each selection, during which time each agent will update its preferred option 
+before making the next selection.
+
+Along with the source is an example configuration file with preset values.
+The possible lines in config.txt are as follows:
+
+selfWeight=<0 or 1>
+    The amount of weight each agent in the simulation gives to its own experiences 
+    vs those of others. A selfWeight of 0 will mean that actions taken by each 
+    agent will affect all agents equally (full knowledge sharing). A selfWeight of 
+    1 will mean that each agent will only take its own experiences into account 
+    when updating its expected values (no knowledge sharing).
+
+timeWeight=<number between 0 and 1, inclusive>
+    The amount of weight given to newly obtained information when updating learned 
+    behavior. A timeWeight of 0 means only old information is used (no learning). 
+    A timeWeight of 1 means only new information is used (no memory).
+
+resourceShare=<0 or 1>
+    The proportion of resource income/cost each agent will share with the rest of 
+    the population. A resourceShare of 0 means all incoming resources are kept by 
+    each agent and all costs are payed fully by each agent (no resource sharing). 
+    A resourceShare of 1 means all incoming resources are shared with the general 
+    population and all costs come from the "budget" of the general population 
+    (full resource sharing).
+
+numberOfAgents=<positive integer>
+    The number of agents initially present in each population.
+
+numberOfTrials=<positive integer>
+    The length of the simulation, or number of selections each agent will make.
+
+costOfLiving=<real number>
+    The amount of resources required by each agent at the end of each selection 
+    step. A negative number indicates that the agent gains resources (not advised).
+
+stateActionSpace=<see example below>
+    This contains the  data describing the state-action space of the simulation 
+    environment. Consider the example {{{100}:0,{0,240}:0}}, or equivalently:
+    {
+        {
+            {
+                100
+            }:0,
+            {
+                0,
+                240
+            }:0
+        }
+    }
+    Each level of braces denotes a piece of the S-A space. The ":#" at the end of 
+    each action describes which state the agent will be in following the selection 
+    of this action.
+    
+    { // level 1 contains states, comma separated
+        { // level 2 contains actions, comma separated
+            { // level 3 contains possible rewards, comma separated
+                100
+            }:0, // <-- this action takes the agent to state 0
+            {
+                0,
+                240
+            }:0
+        }
+    }
+    
+    This S-A space contains one state (index 0) with two possible actions. The 
+    first action has one possible reward of 100 units of resource. The second 
+    action has two possible rewards of 0 and 240 units of resource. Regardless of 
+    which action was selected, the agent goes to state 0 after making a selection.
+
+Included in the "data" directory are three folders, each with four more folders. 
+Each of these twelve folders contains a config.txt and 50 raw data files which 
+each resulted from the execution of the Java application with that configuration.

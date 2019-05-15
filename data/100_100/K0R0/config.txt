@@ -1,0 +1,7 @@
+selfWeight=1
+timeWeight=.1
+resourceShare=0
+numberOfAgents=100
+numberOfTrials=10000
+costOfLiving=100
+stateActionSpace={{{100}:0,{0,200}:0}}
