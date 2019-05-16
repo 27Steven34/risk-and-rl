@@ -1,0 +1,7 @@
+Any bugs or feature requests should be made in the "Issues" tab of the 
+repository. Please ensure that the bug or feature request is not already in the 
+issues list.
+
+Changes to the agentsim directory, which houses the application source and default 
+configuration file, can be requested by making a pull request. Changes to the data 
+directory will be denied, as this folder is available for reading only.
