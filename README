@@ -39,7 +39,7 @@ costOfLiving=<real number>
     step. A negative number indicates that the agent gains resources (not advised).
 
 stateActionSpace=<see example below>
-    This contains the  data describing the state-action space of the simulation 
+    This contains the data describing the state-action space of the simulation 
     environment. Consider the example {{{100}:0,{0,240}:0}}, or equivalently:
     {
         {
@@ -75,4 +75,14 @@ stateActionSpace=<see example below>
 
 Included in the "data" directory are three folders, each with four more folders. 
 Each of these twelve folders contains a config.txt and 50 raw data files which 
-each resulted from the execution of the Java application with that configuration.
+each resulted from the execution of the Java application with that configuration. 
+Each line of data contains five tab-separated values recorded after the selection 
+phase of each step of the simulation: the proportion of the remaining population 
+who prefer the first of the two options (number between 0 and 1, inclusive); the 
+average difference between the perceived value of the first option and second 
+option (number); the proportion of the population which has not "died" (number 
+between 0 and 1, inclusive); the total amount of resources available within the 
+population (integer); and the total amount of resources available within the 
+population divided by the number of remaining agents within the population 
+(number). The very last line of each data file contains the configuration 
+parameters for the simulation which produced that data (should match config.txt).
