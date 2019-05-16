@@ -1,6 +1,6 @@
 This project contains source code for a Java application which simulates a 
 population of reinforcement-learning agents which each need to repeatedly select 
-between two options in order to try to maximize its acculated reward over time. 
+between two options in order to try to maximize its accumulated reward over time. 
 The agents may or may not share information or resources among each other after 
 each selection, during which time each agent will update its preferred option 
 before making the next selection.
